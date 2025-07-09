@@ -1,5 +1,5 @@
 # TrackME
-A To-Do list application made using JavaFX Swing.
+A To-Do list application made using Java Swing.
 
 So far, it only includes default habits that cannot be changed. I'm currently working on a system that will allow users to add their own custom habits.
 
