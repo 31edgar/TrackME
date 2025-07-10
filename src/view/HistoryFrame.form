@@ -24,6 +24,7 @@
         </constraints>
         <properties>
           <font name="Segoe UI Black" size="42"/>
+          <foreground color="-12566464"/>
           <text value="TrackME!"/>
         </properties>
       </component>

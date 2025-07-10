@@ -38,6 +38,21 @@ public class HabitManager implements Serializable {
         };
     }
 
+    public String getHabitsInADay(LocalDate day) {
+        StringBuilder habits = new StringBuilder();
+
+        if (skincare.isDayChecked(day)) habits.append("Skincare\n");
+        if (japanese.isDayChecked(day)) habits.append("日本語\n");
+        if (autoescuela.isDayChecked(day)) habits.append("Driving license\n");
+        if (coding.isDayChecked(day)) habits.append("Coding\n");
+        if (workout.isDayChecked(day)) habits.append("Workout\n");
+        if (noSoda.isDayChecked(day)) habits.append("No soda\n");
+        if (eatClean.isDayChecked(day)) habits.append("Eat clean\n");
+        if (running.isDayChecked(day)) habits.append("Running");
+
+        return habits.toString();
+    }
+
     private void HabitSetup() {
         skincare = new Habit("Skincare");
         skincare.setDescription("To follow your skincare routine.");

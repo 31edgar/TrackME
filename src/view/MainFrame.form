@@ -45,8 +45,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-12566464"/>
+              <background color="-13948117"/>
               <borderPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI Black" size="14"/>
               <foreground color="-1118482"/>
               <text value="Mark all done"/>
@@ -61,9 +62,10 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-12566464"/>
+              <background color="-13948117"/>
               <borderPainted value="false"/>
               <contentAreaFilled value="true"/>
+              <focusable value="false"/>
               <font name="Segoe UI Black" size="14"/>
               <foreground color="-1118482"/>
               <text value="Show history"/>
@@ -85,7 +87,9 @@
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <focusable value="false"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="827b" class="javax.swing.JCheckBox" binding="cbSkincare">
@@ -93,6 +97,8 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="Skincare"/>
             </properties>
@@ -102,6 +108,8 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="日本語"/>
             </properties>
@@ -111,6 +119,8 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="Driving License"/>
             </properties>
@@ -120,6 +130,8 @@
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="Coding"/>
             </properties>
@@ -129,6 +141,8 @@
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="Workout"/>
             </properties>
@@ -138,6 +152,8 @@
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="No soda"/>
             </properties>
@@ -147,6 +163,7 @@
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
               <font name="Segoe UI"/>
               <text value="Eating clean"/>
             </properties>
@@ -156,6 +173,8 @@
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
               <font name="Segoe UI"/>
               <text value="Running"/>
             </properties>

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.time.LocalDate;
 
-public class MainFrame extends JFrame{
+public class MainFrame extends JFrame {
     private JPanel mainPanel;
     private JLabel mainTitle;
     private JButton markAllDoneButton;
@@ -187,8 +187,8 @@ public class MainFrame extends JFrame{
         showHistoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HistoryFrame historyFrame = new HistoryFrame(MainFrame.this, habitManager);
-                historyFrame.setVisible(true);
+                ChooseHistoryFrame chooseHistoryFrame = new ChooseHistoryFrame(MainFrame.this, habitManager);
+                chooseHistoryFrame.setVisible(true);
             }
         });
     }

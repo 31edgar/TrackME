@@ -26,7 +26,7 @@ public class HistoryFrame extends JDialog{
 
         this.habitManager = habitManager;
 
-        setupListeners();
+        setupListeners(parent);
         setTextPane();
     }
 
@@ -34,7 +34,7 @@ public class HistoryFrame extends JDialog{
         historyTextPane.setText(habitManager.listToString(comboBox1.getSelectedIndex()));
     }
 
-    private void setupListeners() {
+    private void setupListeners(JFrame parent) {
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
