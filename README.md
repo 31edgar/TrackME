@@ -9,11 +9,11 @@ TrackME is a to-do list application built with Java Swing. Its goal is to be as 
 
 ## Versions
 ### Latest version: 1.1
-I managed to implement another way to check your progress: Calendar View. I believe that having different systems to review your progress is essential to stay motivated and keep working hard.
+I managed to implement another way to check your progress: **Calendar View**. I believe that having different systems to review your progress is essential to stay motivated and keep working hard.
 
 In this case, there are two views:
-+ Habit View: allows you to track which days you have completed each habit
-+ Calendar View: provides a summary of all habits completed on a specific day
++ **Habit View**: allows you to track which days you have completed each habit
++ **Calendar View**: provides a summary of all habits completed on a specific day
 
 So far, it only includes default habits that cannot be changed. I'm currently working on a system that will allow users to add their own custom habits.
 
