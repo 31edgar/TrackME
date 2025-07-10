@@ -1,13 +1,15 @@
 # TrackME
 ## Table of contents
 - [Description](#Description)
-- [Version 1.1](#Version)
+- [Versions](#Versions)
+-   [1.1](#1.1)
 - [Images](#Images)
 
 ## Description
 TrackME is a to-do list application built with Java Swing. Its goal is to be as simple as it is useful. It focuses on daily progress through habit completion, helping users build a strong foundation of discipline.
 
-## Version 1.1
+## Versions
+### 1.1
 I managed to implement another way to check your progress: Calendar View. I believe that having different systems to review your progress is essential to stay motivated and keep working hard.
 
 In this case, there are two views:
