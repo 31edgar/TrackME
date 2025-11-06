@@ -32,7 +32,7 @@ public class CalendarFrame extends JDialog {
         this.habitManager = habitManager;
 
         setupListeners();
-        setCalendar();
+        setCalendar(false);
     }
 
     private Month getSelectedMonth() {
@@ -62,7 +62,7 @@ public class CalendarFrame extends JDialog {
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setCalendar();
+                setCalendar(true);
             }
         });
 
@@ -88,9 +88,7 @@ public class CalendarFrame extends JDialog {
         });
     }
 
-    private void setCalendar() {
-        int index = comboBox1.getSelectedIndex();
-
+    private void setCalendar(Boolean byIndex) {
         Object[][] july = {
                 {"", 1, 2, 3, 4, 5, 6},
                 {7, 8, 9, 10, 11, 12, 13},
@@ -134,25 +132,47 @@ public class CalendarFrame extends JDialog {
         String[] columnNames = {"L", "M", "X", "J", "V", "S", "D"};
         Object[][] data = {};
 
-        switch (index) {
-            case 0:
-                break;
-            case 1:
-                data = july;
-                break;
-            case 2:
-                data = august;
-                break;
-            case 3, 6:
-                data = septemberAndDecember;
-                break;
-            case 4:
-                data = october;
-                break;
-            case 5:
-                data = november;
-                break;
+
+        if (byIndex) {
+            int index = comboBox1.getSelectedIndex();
+
+            switch (index) {
+                case 0:
+                    break;
+                case 1:
+                    data = july;
+                    break;
+                case 2:
+                    data = august;
+                    break;
+                case 3, 6:
+                    data = septemberAndDecember;
+                    break;
+                case 4:
+                    data = october;
+                    break;
+                case 5:
+                    data = november;
+                    break;
+            }
+
+        } else {
+            LocalDate localDate = LocalDate.now();
+
+            switch(localDate.getMonthValue()) {
+                case 0:
+                    break;
+                case 11:
+                    data = november;
+                    comboBox1.setSelectedIndex(5);
+                    break;
+                case 12:
+                    data = septemberAndDecember;
+                    comboBox1.setSelectedIndex(6);
+                    break;
+            }
         }
+
 
         table1.setModel(new DefaultTableModel(data, columnNames) {
             @Override
