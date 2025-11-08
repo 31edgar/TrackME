@@ -1,29 +1,23 @@
 package view;
 
-import model.HabitManager;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.time.LocalDate;
 
 public class MainFrame extends JFrame {
     private JPanel mainPanel;
     private JLabel mainTitle;
     private JButton markAllDoneButton;
     private JButton showHistoryButton;
-    private JCheckBox cbSkincare;
-    private JCheckBox cbAnki;
-    private JCheckBox cbAutoescuela;
-    private JCheckBox cbCoding;
-    private JCheckBox cbWorkout;
-    private JCheckBox cbNosoda;
-    private JCheckBox cbEatClean;
-    private JCheckBox cbRunning;
-
-    HabitManager habitManager;
-    LocalDate today;
+    private JCheckBox cbHabit0;
+    private JCheckBox cbHabit1;
+    private JCheckBox cbHabit2;
+    private JCheckBox cbHabit3;
+    private JCheckBox cbHabit4;
+    private JCheckBox cbHabit5;
+    private JCheckBox cbHabit6;
+    private JCheckBox cbHabit7;
+    private JButton renameHabitsButton;
+    private JPanel willyrexPanel;
 
     public MainFrame() {
         // Window adjustments
@@ -35,166 +29,108 @@ public class MainFrame extends JFrame {
 
         ImageIcon logo = new ImageIcon(".//.//.//media/favicon-32x32.png");
         setIconImage(logo.getImage());
-
-        // HabitManager adjustments
-        habitManager = new HabitManager();
-        today = LocalDate.now();
-
-        setupListeners();
-
-        // File loading adjustments
-        fileLoading();
     }
 
-    private void fileLoading() {
-        File file = new File(".//.//.//savefiles/habitManager.json");
-        if (file.exists()) {
-            try {
-                habitManager = HabitManager.load();
-            } catch (Exception e) {
-                System.out.println("Todos quieren un verso del golden boi...");
-            }
+    // Checkbox getters
+    public boolean isHabit0Selected() {
+        return cbHabit0.isSelected();
+    }
+    public boolean isHabit1Selected() {
+        return cbHabit1.isSelected();
+    }
+    public boolean isHabit2Selected() {
+        return cbHabit2.isSelected();
+    }
+    public boolean isHabit3Selected() {
+        return cbHabit3.isSelected();
+    }
+    public boolean isHabit4Selected() {
+        return cbHabit4.isSelected();
+    }
+    public boolean isHabit5Selected() {
+        return cbHabit5.isSelected();
+    }
+    public boolean isHabit6Selected() {
+        return cbHabit6.isSelected();
+    }
+    public boolean isHabit7Selected() {
+        return cbHabit7.isSelected();
+    }
 
-            if (today.equals(habitManager.getToday())) {
-                updateCheckboxToday();
-            } else {
-                startNewDay();
-            }
+    // Checkbox setters
+    public void setHabit0Selected(boolean selected) {
+        cbHabit0.setSelected(selected);
+    }
+    public void setHabit1Selected(boolean selected) {
+        cbHabit1.setSelected(selected);
+    }
+    public void setHabit2Selected(boolean selected) {
+        cbHabit2.setSelected(selected);
+    }
+    public void setHabit3Selected(boolean selected) {
+        cbHabit3.setSelected(selected);
+    }
+    public void setHabit4Selected(boolean selected) {
+        cbHabit4.setSelected(selected);
+    }
+    public void setHabit5Selected(boolean selected) {
+        cbHabit5.setSelected(selected);
+    }
+    public void setHabit6Selected(boolean selected) {
+        cbHabit6.setSelected(selected);
+    }
+    public void setHabit7Selected(boolean selected) {
+        cbHabit7.setSelected(selected);
+    }
+
+    public void setCheckboxText(int index, String text) {
+        switch (index) {
+            case 0 -> cbHabit0.setText(text);
+            case 1 -> cbHabit1.setText(text);
+            case 2 -> cbHabit2.setText(text);
+            case 3 -> cbHabit3.setText(text);
+            case 4 -> cbHabit4.setText(text);
+            case 5 -> cbHabit5.setText(text);
+            case 6 -> cbHabit6.setText(text);
+            case 7 -> cbHabit7.setText(text);
         }
+
     }
 
-    private void updateCheckboxToday() {
-        if (habitManager.skincare.isDayChecked(today)) cbSkincare.setSelected(true);
-        if (habitManager.japanese.isDayChecked(today)) cbAnki.setSelected(true);
-        if (habitManager.autoescuela.isDayChecked(today)) cbAutoescuela.setSelected(true);
-        if (habitManager.coding.isDayChecked(today)) cbCoding.setSelected(true);
-        if (habitManager.workout.isDayChecked(today)) cbWorkout.setSelected(true);
-        if (habitManager.noSoda.isDayChecked(today)) cbNosoda.setSelected(true);
-        if (habitManager.eatClean.isDayChecked(today)) cbEatClean.setSelected(true);
-        if (habitManager.running.isDayChecked(today)) cbRunning.setSelected(true);
+    // Adding listeners methods
+    public void addCB0listener(ActionListener l) {
+        cbHabit0.addActionListener(l);
+    }
+    public void addCB1listener(ActionListener l) {
+        cbHabit1.addActionListener(l);
+    }
+    public void addCB2listener(ActionListener l) {
+        cbHabit2.addActionListener(l);
+    }
+    public void addCB3listener(ActionListener l) {
+        cbHabit3.addActionListener(l);
+    }
+    public void addCB4listener(ActionListener l) {
+        cbHabit4.addActionListener(l);
+    }
+    public void addCB5listener(ActionListener l) {
+        cbHabit5.addActionListener(l);
+    }
+    public void addCB6listener(ActionListener l) {
+        cbHabit6.addActionListener(l);
+    }
+    public void addCB7listener(ActionListener l) {
+        cbHabit7.addActionListener(l);
     }
 
-    private void startNewDay() {
-        habitManager.setToday(today);
+    public void addMarkAllDoneListener(ActionListener l) {
+        markAllDoneButton.addActionListener(l);
     }
 
-    private void setupListeners() {
-        // Listeners
-        cbSkincare.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbSkincare.isSelected()) {
-                    habitManager.checkToday(0);
-                } else {
-                    habitManager.uncheckToday(0);
-                }
-            }
-        });
-
-        cbAnki.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbAnki.isSelected()) {
-                    habitManager.checkToday(1);
-                } else {
-                    habitManager.uncheckToday(1);
-                }
-            }
-        });
-
-        cbAutoescuela.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbAutoescuela.isSelected()) {
-                    habitManager.checkToday(2);
-                } else {
-                    habitManager.uncheckToday(2);
-                }
-            }
-        });
-
-        cbCoding.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbCoding.isSelected()) {
-                    habitManager.checkToday(3);
-                } else {
-                    habitManager.uncheckToday(3);
-                }
-            }
-        });
-
-        cbWorkout.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbWorkout.isSelected()) {
-                    habitManager.checkToday(4);
-                } else {
-                    habitManager.uncheckToday(4);
-                }
-            }
-        });
-
-        cbNosoda.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbNosoda.isSelected()) {
-                    habitManager.checkToday(5);
-                } else {
-                    habitManager.uncheckToday(5);
-                }
-            }
-        });
-
-        cbEatClean.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbEatClean.isSelected()) {
-                    habitManager.checkToday(6);
-                } else {
-                    habitManager.uncheckToday(6);
-                }
-            }
-        });
-
-        cbRunning.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cbRunning.isSelected()) {
-                    habitManager.checkToday(7);
-                } else {
-                    habitManager.uncheckToday(7);
-                }
-            }
-        });
-
-        markAllDoneButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cbSkincare.setSelected(true);
-                cbAnki.setSelected(true);
-                cbAutoescuela.setSelected(true);
-                cbCoding.setSelected(true);
-                cbWorkout.setSelected(true);
-                cbNosoda.setSelected(true);
-                cbEatClean.setSelected(true);
-                cbRunning.setSelected(true);
-
-                habitManager.checkAllDoneToday();
-            }
-        });
-
-        showHistoryButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ChooseHistoryFrame chooseHistoryFrame = new ChooseHistoryFrame(MainFrame.this, habitManager);
-                chooseHistoryFrame.setVisible(true);
-            }
-        });
+    public void addShowHistoryListener(ActionListener l) {
+        showHistoryButton.addActionListener(l);
     }
-
-    public static void main(String[] args) {
-        MainFrame mainFrame = new MainFrame();
-        mainFrame.setVisible(true);
+    public void addRenameHabitsListener(ActionListener l) {
+        renameHabitsButton.addActionListener(l);
     }
 }

@@ -11,8 +11,6 @@ public class HistoryFrame extends JDialog{
     private JPanel historyPane;
     private JTextPane historyTextPane;
 
-    HabitManager habitManager;
-
     public HistoryFrame(JFrame parent, HabitManager habitManager) {
         super(parent);
         setContentPane(historyPane);
@@ -23,23 +21,18 @@ public class HistoryFrame extends JDialog{
 
         ImageIcon logo = new ImageIcon(".//.//.//media/favicon-32x32.png");
         setIconImage(logo.getImage());
-
-        this.habitManager = habitManager;
-
-        setupListeners(parent);
-        setTextPane();
     }
 
-    private void setTextPane() {
-        historyTextPane.setText(habitManager.listToString(comboBox1.getSelectedIndex()));
+    public void setTextPane(String text) {
+        historyTextPane.setText(text);
     }
 
-    private void setupListeners(JFrame parent) {
-        comboBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setTextPane();
-            }
-        });
+    public int getSelectedIndex() {
+        return comboBox1.getSelectedIndex();
     }
+
+    public void addComboboxListener(ActionListener l) {
+        comboBox1.addActionListener(l);
+    }
+
 }

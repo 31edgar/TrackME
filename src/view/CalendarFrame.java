@@ -35,6 +35,15 @@ public class CalendarFrame extends JDialog {
         setCalendar(false);
     }
 
+    // Getters & Setters
+    public int getSelectedIndex() {
+        return comboBox1.getSelectedIndex();
+    }
+    public int setSelectedIndex(int selectedIndex) {
+        return comboBox1.getSelectedIndex();
+    }
+
+    // Funciones para pasar al controller
     private Month getSelectedMonth() {
         int index = comboBox1.getSelectedIndex();
 
