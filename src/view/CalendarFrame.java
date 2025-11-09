@@ -4,8 +4,10 @@ import model.HabitManager;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -15,9 +17,8 @@ public class CalendarFrame extends JDialog {
     private JComboBox comboBox1;
     private JTextPane textPane1;
 
-    HabitManager habitManager;
 
-    public CalendarFrame(JFrame parent, HabitManager habitManager) {
+    public CalendarFrame(JFrame parent) {
         super(parent);
 
         setContentPane(calendarPane);
@@ -28,166 +29,54 @@ public class CalendarFrame extends JDialog {
 
         ImageIcon logo = new ImageIcon(".//.//.//media/favicon-32x32.png");
         setIconImage(logo.getImage());
-
-        this.habitManager = habitManager;
-
-        setupListeners();
-        setCalendar(false);
     }
 
-    // Getters & Setters
-    public int getSelectedIndex() {
-        return comboBox1.getSelectedIndex();
-    }
-    public int setSelectedIndex(int selectedIndex) {
-        return comboBox1.getSelectedIndex();
-    }
 
-    // Funciones para pasar al controller
-    private Month getSelectedMonth() {
-        int index = comboBox1.getSelectedIndex();
+    // -----------------------------------------------------------------------------------
 
-        switch (index) {
-            case 0:
-                break;
-            case 1:
-                return Month.JULY;
-            case 2:
-                return Month.AUGUST;
-            case 3:
-                return Month.SEPTEMBER;
-            case 4:
-                return Month.OCTOBER;
-            case 5:
-                return Month.NOVEMBER;
-            case 6:
-                return Month.DECEMBER;
-        }
-
-        return Month.JANUARY;
+    public void setTextPane1(String text) {
+        textPane1.setText(text);
     }
 
-    private void setupListeners() {
-        comboBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setCalendar(true);
-            }
-        });
-
-        // Listener made by @nis4273 on GitHub
-        table1.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int dayNum;
-                Month month;
-                LocalDate date;
-
-                int row = table1.rowAtPoint(evt.getPoint());
-                int col = table1.columnAtPoint(evt.getPoint());
-                if (row >= 0 && col >= 0) {
-
-                    dayNum = (int) table1.getModel().getValueAt(row, col);
-                    month = getSelectedMonth();
-                    date = LocalDate.of(2025, month, dayNum);
-
-                    textPane1.setText(habitManager.getHabitsInADay(date));
-                }
-            }
-        });
+    public void addComboBoxListener(ActionListener l) {
+        comboBox1.addActionListener(l);
     }
 
-    private void setCalendar(Boolean byIndex) {
-        Object[][] july = {
-                {"", 1, 2, 3, 4, 5, 6},
-                {7, 8, 9, 10, 11, 12, 13},
-                {14, 15, 16, 17, 18, 19, 20},
-                {21, 22, 23, 24, 25, 26, 27},
-                {28, 29, 30, 31}
-        };
-
-        Object[][] august = {
-                {"", "", "", "", 1, 2, 3},
-                {4, 5, 6, 7, 8, 9, 10},
-                {11, 12, 13, 14, 15, 16, 17},
-                {18, 19, 20, 21, 22, 23, 24},
-                {25, 26, 27, 28, 29, 30, 31}
-        };
-
-        Object[][] septemberAndDecember = {
-                {1, 2, 3, 4, 5, 6, 7},
-                {8, 9, 10, 11, 12, 13, 14},
-                {15, 16, 17, 18, 19, 20, 21},
-                {21, 22, 23, 24, 25, 26, 27},
-                {28, 29, 30}
-        };
-
-        Object[][] october = {
-                {"", "", 1, 2, 3, 4, 5},
-                {6, 7, 8, 9, 10, 11, 12},
-                {13, 14, 15, 16, 17, 18, 19},
-                {20, 21, 22, 23, 24, 25, 26},
-                {27, 28, 29, 30, 31}
-        };
-
-        Object[][] november = {
-                {"", "", "", "", "", 1, 2},
-                {3, 4, 5, 6, 7, 8, 9},
-                {10, 11, 12, 13, 14, 15, 16},
-                {17, 18, 19, 20, 21, 22, 23},
-                {24, 25, 26, 27, 28, 29, 30}
-        };
-
-        String[] columnNames = {"L", "M", "X", "J", "V", "S", "D"};
-        Object[][] data = {};
+    public void addTable1Listener(MouseAdapter l) {
+        table1.addMouseListener(l);
+    }
 
 
-        if (byIndex) {
-            int index = comboBox1.getSelectedIndex();
+    public void t1SetModel(DefaultTableModel model) {
+        table1.setModel(model);
+    }
 
-            switch (index) {
-                case 0:
-                    break;
-                case 1:
-                    data = july;
-                    break;
-                case 2:
-                    data = august;
-                    break;
-                case 3, 6:
-                    data = septemberAndDecember;
-                    break;
-                case 4:
-                    data = october;
-                    break;
-                case 5:
-                    data = november;
-                    break;
-            }
+    public TableModel t1getModel() {
+        return table1.getModel();
+    }
 
-        } else {
-            LocalDate localDate = LocalDate.now();
+    public int t1RowAtPoint(java.awt.Point p) {
+        return table1.rowAtPoint(p);
+    }
 
-            switch(localDate.getMonthValue()) {
-                case 0:
-                    break;
-                case 11:
-                    data = november;
-                    comboBox1.setSelectedIndex(5);
-                    break;
-                case 12:
-                    data = septemberAndDecember;
-                    comboBox1.setSelectedIndex(6);
-                    break;
-            }
-        }
+    public int t1RColAtPoint(java.awt.Point p) {
+        return table1.columnAtPoint(p);
+    }
 
-
-        table1.setModel(new DefaultTableModel(data, columnNames) {
+    public DefaultTableModel getModel(Object[][] data) {
+        return new DefaultTableModel(data, new String[]{"L", "M", "X", "J", "V", "S", "D"}) {
             @Override
             public boolean isCellEditable(int row, int col) {
                 return false;
             }
-        });
+        };
+    }
+
+    public void comboBoxSetSelectedIndex(int index) {
+        comboBox1.setSelectedIndex(index);
+    }
+
+    public int comboBoxGetSelectedIndex() {
+        return comboBox1.getSelectedIndex();
     }
 }

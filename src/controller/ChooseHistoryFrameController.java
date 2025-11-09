@@ -32,7 +32,8 @@ public class ChooseHistoryFrameController {
     }
 
     private void showCalendarFrame() {
-        CalendarFrame calendarFrame = new CalendarFrame(parent, model);
+        CalendarFrame calendarFrame = new CalendarFrame(parent);
+        CalendarController controller = new CalendarController(model, calendarFrame);
         calendarFrame.setVisible(true);
         view.dispose();
     }
