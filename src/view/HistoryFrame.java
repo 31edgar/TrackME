@@ -1,6 +1,7 @@
 package view;
 
 import model.HabitManager;
+import model.Theme;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +11,8 @@ public class HistoryFrame extends JDialog{
     private JComboBox comboBox1;
     private JPanel historyPane;
     private JTextPane historyTextPane;
+    private JLabel mainTitle;
+    private JLabel textLabel;
 
     public HistoryFrame(JFrame parent, HabitManager habitManager) {
         super(parent);
@@ -35,4 +38,20 @@ public class HistoryFrame extends JDialog{
         comboBox1.addActionListener(l);
     }
 
+    public void applyTheme(Theme theme) {
+        // Title
+        mainTitle.setForeground(theme.getPrimaryColor());
+        textLabel.setForeground(theme.getPrimaryColor());
+
+        // Buttons
+        comboBox1.setForeground(theme.getSecondaryColor());
+        comboBox1.setBackground(theme.getPrimaryColor());
+
+        // Panel
+        historyPane.setBackground(theme.getBackgroundColor());
+        historyTextPane.setBackground(theme.getBackgroundColor());
+        historyTextPane.setForeground(theme.getTextColor());
+
+        this.repaint();
+    }
 }

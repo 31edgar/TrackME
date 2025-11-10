@@ -5,7 +5,12 @@ import controller.MainController;
 public class TrackME {
     public static void main(String[] args) {
         // 1. Crear el modelo
-        HabitManager model = new HabitManager();
+        HabitManager model;
+        try {
+            model = HabitManager.load(); // 🔹 Carga el guardado
+        } catch (Exception e) {
+            model = new HabitManager();  // 🔹 Si no existe, crea uno nuevo
+        }
 
         // 2. Crear la vista
         MainFrame view = new MainFrame();

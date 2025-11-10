@@ -1,5 +1,7 @@
 package view;
 
+import model.Theme;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -18,6 +20,8 @@ public class MainFrame extends JFrame {
     private JCheckBox cbHabit7;
     private JButton renameHabitsButton;
     private JPanel willyrexPanel;
+    private JButton themesButton;
+    private JLabel textLabel;
 
     public MainFrame() {
         // Window adjustments
@@ -29,6 +33,7 @@ public class MainFrame extends JFrame {
 
         ImageIcon logo = new ImageIcon(".//.//.//media/favicon-32x32.png");
         setIconImage(logo.getImage());
+
     }
 
     // Checkbox getters
@@ -126,11 +131,63 @@ public class MainFrame extends JFrame {
     public void addMarkAllDoneListener(ActionListener l) {
         markAllDoneButton.addActionListener(l);
     }
+    public void addThemesListener(ActionListener l) {
+        themesButton.addActionListener(l);
+    }
 
     public void addShowHistoryListener(ActionListener l) {
         showHistoryButton.addActionListener(l);
     }
     public void addRenameHabitsListener(ActionListener l) {
         renameHabitsButton.addActionListener(l);
+    }
+
+    // Applying a theme
+    public void applyTheme(Theme theme) {
+        // Title
+        mainTitle.setForeground(theme.getPrimaryColor());
+        textLabel.setForeground(theme.getPrimaryColor());
+
+        // Checkboxes
+        cbHabit0.setFont(theme.getFont());
+        cbHabit0.setForeground(theme.getTextColor());
+        cbHabit0.setBackground(theme.getBackgroundColor());
+        cbHabit1.setFont(theme.getFont());
+        cbHabit1.setForeground(theme.getTextColor());
+        cbHabit1.setBackground(theme.getBackgroundColor());
+        cbHabit2.setFont(theme.getFont());
+        cbHabit2.setForeground(theme.getTextColor());
+        cbHabit2.setBackground(theme.getBackgroundColor());
+        cbHabit3.setFont(theme.getFont());
+        cbHabit3.setForeground(theme.getTextColor());
+        cbHabit3.setBackground(theme.getBackgroundColor());
+        cbHabit4.setFont(theme.getFont());
+        cbHabit4.setForeground(theme.getTextColor());
+        cbHabit4.setBackground(theme.getBackgroundColor());
+        cbHabit5.setFont(theme.getFont());
+        cbHabit5.setForeground(theme.getTextColor());
+        cbHabit5.setBackground(theme.getBackgroundColor());
+        cbHabit6.setFont(theme.getFont());
+        cbHabit6.setForeground(theme.getTextColor());
+        cbHabit6.setBackground(theme.getBackgroundColor());
+        cbHabit7.setFont(theme.getFont());
+        cbHabit7.setForeground(theme.getTextColor());
+        cbHabit7.setBackground(theme.getBackgroundColor());
+
+        // Buttons
+        markAllDoneButton.setBackground(theme.getPrimaryColor());
+        markAllDoneButton.setForeground(theme.getSecondaryColor());
+        themesButton.setBackground(theme.getPrimaryColor());
+        themesButton.setForeground(theme.getSecondaryColor());
+        renameHabitsButton.setBackground(theme.getPrimaryColor());
+        renameHabitsButton.setForeground(theme.getSecondaryColor());
+        showHistoryButton.setBackground(theme.getPrimaryColor());
+        showHistoryButton.setForeground(theme.getSecondaryColor());
+
+        // Panel
+        mainPanel.setBackground(theme.getBackgroundColor());
+        willyrexPanel.setBackground(theme.getBackgroundColor());
+
+        this.repaint();
     }
 }

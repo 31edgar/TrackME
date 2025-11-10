@@ -6,15 +6,25 @@ import java.time.LocalDate;
 public class HabitManager implements Serializable {
     // Attributes
     public Habit habit0, habit1, habit2, habit3, habit4, habit5, habit6, habit7;
-    LocalDate today;
+    private LocalDate today;
+    public ThemeManager themeManager;
 
     // Builder
     public HabitManager() {
         today = LocalDate.now();
         HabitSetup();
+        this.themeManager = new ThemeManager();
     }
 
     // Methods
+    public ThemeManager getThemeManager() {
+        return themeManager;
+    }
+
+    public void setThemeManager(ThemeManager themeManager) {
+        this.themeManager = themeManager;
+    }
+
     public LocalDate getToday() {
         return this.today;
     }

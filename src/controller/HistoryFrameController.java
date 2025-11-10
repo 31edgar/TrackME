@@ -16,6 +16,8 @@ public class HistoryFrameController {
 
         setupListeners();
         setTextPanel();
+
+        model.themeManager.applyTheme(view);
     }
 
     public void setupListeners() {

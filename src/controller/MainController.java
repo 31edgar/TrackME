@@ -5,6 +5,7 @@ import model.Habit;
 import view.ChooseHistoryFrame;
 import view.HabitNameChangingFrame;
 import view.MainFrame;
+import view.ThemeFrame;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -23,6 +24,9 @@ public class MainController {
         setupListeners();
         updateCheckboxToday();
         updateCheckboxText();
+
+        mainFrame.applyTheme(habitManager.getThemeManager().getCurrentTheme());
+        System.out.println("Current Theme: " + habitManager.getThemeManager().getCurrentTheme().getName());
     }
 
     public boolean isDayChecked(LocalDate date, int habitId) {
@@ -75,6 +79,7 @@ public class MainController {
         mainFrame.addMarkAllDoneListener(e -> markAllDone());
         mainFrame.addShowHistoryListener(e -> showHistory());
         mainFrame.addRenameHabitsListener(e -> showHabitNameChanging());
+        mainFrame.addThemesListener(e -> showThemes());
     }
 
     public void updateCheckboxText() {
@@ -102,6 +107,12 @@ public class MainController {
     private void showHabitNameChanging() {
         HabitNameChangingFrame frame = new HabitNameChangingFrame(mainFrame);
         HabitNameChangingController controller = new HabitNameChangingController(mainFrame, frame, habitManager);
+        frame.setVisible(true);
+    }
+
+    private void showThemes() {
+        ThemeFrame frame = new ThemeFrame(mainFrame);
+        ThemesController controller = new ThemesController(mainFrame, habitManager, frame);
         frame.setVisible(true);
     }
 }

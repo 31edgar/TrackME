@@ -33,3 +33,6 @@ So far, it only includes default habits that cannot be changed. I'm currently wo
 !! - This is a VERY early version, so it only has a few features.
 
 Author - Edgar Esparza ([@31edgar](https://github.com/31edgar))
+
+Some used resources:
+- https://icons8.com/icon/102595/paint-palette

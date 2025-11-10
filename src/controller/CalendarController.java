@@ -17,6 +17,8 @@ public class CalendarController {
 
         setupListeners();
         setCalendar(false);
+
+        model.themeManager.applyTheme(view);
     }
 
     private void setCalendar(Boolean byIndex) {

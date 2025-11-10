@@ -2,8 +2,9 @@ package model;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.Serializable;
 
-public class Theme {
+public class Theme implements Serializable {
     private final String name;
     private final Color primaryColor;
     private final Color secondaryColor;
@@ -12,8 +13,7 @@ public class Theme {
     private final Font font;
 
     public Theme(String name, Color primaryColor, Color secondaryColor,
-                 Color backgroundColor, Color textColor, Font font,
-                 String accentImagePath) {
+                 Color backgroundColor, Color textColor, Font font) {
         this.name = name;
         this.primaryColor = primaryColor;
         this.secondaryColor = secondaryColor;

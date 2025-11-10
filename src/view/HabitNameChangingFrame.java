@@ -1,5 +1,7 @@
 package view;
 
+import model.Theme;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -15,7 +17,9 @@ public class HabitNameChangingFrame extends JDialog{
     private JTextField textFieldH7;
     private JButton confirmButton;
     private JButton CancelButton;
-    private JLabel label;
+    private JLabel mainTitle;
+    private JLabel textLabel;
+    private JPanel secondaryPanel;
 
     public HabitNameChangingFrame(JFrame parent) {
         super(parent);
@@ -62,5 +66,24 @@ public class HabitNameChangingFrame extends JDialog{
             case 6 -> textFieldH6.setText(text);
             case 7 -> textFieldH7.setText(text);
         }
+    }
+
+    public void applyTheme(Theme theme) {
+        // Title
+        mainTitle.setForeground(theme.getPrimaryColor());
+        textLabel.setForeground(theme.getPrimaryColor());
+
+        // Buttons
+        confirmButton.setForeground(theme.getSecondaryColor());
+        confirmButton.setBackground(theme.getPrimaryColor());
+        CancelButton.setForeground(theme.getSecondaryColor());
+        CancelButton.setBackground(theme.getPrimaryColor());
+
+
+        // Panel
+        HabitNameChangingPanel.setBackground(theme.getBackgroundColor());
+        secondaryPanel.setBackground(theme.getBackgroundColor());
+
+        this.repaint();
     }
 }

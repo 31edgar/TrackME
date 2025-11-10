@@ -1,6 +1,7 @@
 package view;
 
 import model.HabitManager;
+import model.Theme;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +17,9 @@ public class CalendarFrame extends JDialog {
     private JTable table1;
     private JComboBox comboBox1;
     private JTextPane textPane1;
+    private JLabel mainTitle;
+    private JLabel textLabel;
+    private JPanel tablePane;
 
 
     public CalendarFrame(JFrame parent) {
@@ -78,5 +82,27 @@ public class CalendarFrame extends JDialog {
 
     public int comboBoxGetSelectedIndex() {
         return comboBox1.getSelectedIndex();
+    }
+
+    public void applyTheme(Theme theme) {
+        // Title
+        mainTitle.setForeground(theme.getPrimaryColor());
+        textLabel.setForeground(theme.getPrimaryColor());
+
+        // Combobox
+        comboBox1.setForeground(theme.getSecondaryColor());
+        comboBox1.setBackground(theme.getPrimaryColor());
+
+        // Table
+        tablePane.setBackground(theme.getPrimaryColor());
+        tablePane.setForeground(theme.getSecondaryColor());
+
+        // Panel
+        calendarPane.setBackground(theme.getBackgroundColor());
+        textPane1.setBackground(theme.getPrimaryColor());
+        textPane1.setForeground(theme.getSecondaryColor());
+        tablePane.setBackground(theme.getBackgroundColor());
+
+        this.repaint();
     }
 }

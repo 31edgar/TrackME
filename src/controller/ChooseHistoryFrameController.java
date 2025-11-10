@@ -17,6 +17,8 @@ public class ChooseHistoryFrameController {
         this.model = model;
 
         setupListeners();
+
+        model.themeManager.applyTheme(view);
     }
 
     private void setupListeners() {

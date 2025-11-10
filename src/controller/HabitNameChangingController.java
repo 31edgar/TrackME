@@ -16,6 +16,8 @@ public class HabitNameChangingController {
 
         setupListeners();
         updateTextFields();
+
+        model.themeManager.applyTheme(view);
     }
 
     private void setupListeners() {
