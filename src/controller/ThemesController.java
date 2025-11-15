@@ -18,6 +18,7 @@ public class ThemesController {
 
 
         setupListeners();
+        model.themeManager.applyTheme(themeFrame);
     }
 
     private void setupListeners() {
@@ -31,6 +32,22 @@ public class ThemesController {
         themeFrame.addLightButtonListener(e -> {
             try {
                 applyTheme("Light");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        themeFrame.addNordicButtonListener(e -> {
+            try {
+                applyTheme("Nordic");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        themeFrame.addForestButtonListener(e -> {
+            try {
+                applyTheme("Forest");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

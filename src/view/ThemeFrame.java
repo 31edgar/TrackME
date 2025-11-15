@@ -9,11 +9,11 @@ public class ThemeFrame extends JDialog {
     private JLabel mainTitle;
     private JLabel textLabel;
     private JButton lightButton;
-    private JButton button2;
+    private JButton nordicButton;
     private JButton button3;
     private JButton button4;
     private JButton darkButton;
-    private JButton button6;
+    private JButton forestButton;
     private JButton button7;
     private JButton button8;
     private JPanel themePanel;
@@ -39,6 +39,14 @@ public class ThemeFrame extends JDialog {
         darkButton.addActionListener(l);
     }
 
+    public void addNordicButtonListener(ActionListener l) {
+        nordicButton.addActionListener(l);
+    }
+
+    public void addForestButtonListener(ActionListener l) {
+        forestButton.addActionListener(l);
+    }
+
     public void applyTheme(Theme theme) {
         // Title
         mainTitle.setForeground(theme.getPrimaryColor());
@@ -49,14 +57,14 @@ public class ThemeFrame extends JDialog {
         lightButton.setForeground(theme.getSecondaryColor());
         darkButton.setBackground(theme.getPrimaryColor());
         darkButton.setForeground(theme.getSecondaryColor());
-        button2.setBackground(theme.getPrimaryColor());
-        button2.setForeground(theme.getSecondaryColor());
+        nordicButton.setBackground(theme.getPrimaryColor());
+        nordicButton.setForeground(theme.getSecondaryColor());
         button3.setBackground(theme.getPrimaryColor());
         button3.setForeground(theme.getSecondaryColor());
         button4.setBackground(theme.getPrimaryColor());
         button4.setForeground(theme.getSecondaryColor());
-        button6.setBackground(theme.getPrimaryColor());
-        button6.setForeground(theme.getSecondaryColor());
+        forestButton.setBackground(theme.getPrimaryColor());
+        forestButton.setForeground(theme.getSecondaryColor());
         button7.setBackground(theme.getPrimaryColor());
         button7.setForeground(theme.getSecondaryColor());
         button8.setBackground(theme.getPrimaryColor());
@@ -67,4 +75,6 @@ public class ThemeFrame extends JDialog {
 
         this.repaint();
     }
+
+
 }

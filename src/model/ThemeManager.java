@@ -19,7 +19,10 @@ public class ThemeManager implements Serializable {
         }
     }
 
+    // todo ESTO ROMPE EL PATRON MVC
     public void applyTheme(JDialog dialog) {
+        setupThemes();
+
         if (dialog instanceof HistoryFrame historyFrame) {
             historyFrame.applyTheme(currentTheme);
         }
@@ -54,28 +57,51 @@ public class ThemeManager implements Serializable {
     }
 
     public void setCurrentTheme(String themeName) {
-        this.currentTheme = themes.get(themeName);
+        Theme theme = themes.get(themeName);
+        if (theme != null) {
+            this.currentTheme = theme;
+        } else {
+            System.err.println("Tema '" + themeName + "' no encontrado. No se cambia el tema.");
+        }
     }
 
-    private void setupThemes() {
-        themes.put("Light", new Theme(
-                        "Light",
-                        new Color(43, 43, 43),
-                        new Color(238, 238, 238),
-                        new Color(238, 238, 238),
-                        new Color(40, 40, 40),
-                        new Font("Segoe UI", Font.PLAIN, 14)
-                )
-        );
 
-        themes.put("Dark", new Theme(
-                        "Dark",
-                        new Color(238, 238, 238),
-                        new Color(43, 43, 43),
-                        new Color(43, 43, 43),
-                        new Color(238, 238, 238),
-                        new Font("Segoe UI", Font.PLAIN, 14)
-                )
-        );
+    private void setupThemes() {
+        addTheme(new Theme(
+                "Light",
+                new Color(43, 43, 43),
+                new Color(238, 238, 238),
+                new Color(238, 238, 238),
+                new Color(40, 40, 40),
+                new Font("Segoe UI", Font.PLAIN, 14)
+        ));
+
+        addTheme(new Theme(
+                "Dark",
+                new Color(238, 238, 238),
+                new Color(43, 43, 43),
+                new Color(43, 43, 43),
+                new Color(238, 238, 238),
+                new Font("Segoe UI", Font.PLAIN, 14)
+        ));
+
+        addTheme(new Theme(
+                "Nordic",
+                new Color(39, 41, 53),
+                new Color(238, 238, 238),
+                new Color(76,86,106),
+                new Color(238, 238, 238),
+                new Font("Segoe UI", Font.PLAIN, 14)
+        ));
+
+        addTheme(new Theme(
+                "Forest",
+                new Color(34,49,29),
+                new Color(238, 238, 238),
+                new Color(79, 103, 74),
+                new Color(238, 238, 238),
+                new Font("Segoe UI", Font.PLAIN, 14)
+        ));
+
     }
 }

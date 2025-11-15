@@ -53,16 +53,23 @@
         </constraints>
         <properties>
           <background color="-13948117"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="true"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <text value="Light"/>
         </properties>
       </component>
-      <component id="ee598" class="javax.swing.JButton" binding="button2">
+      <component id="ee598" class="javax.swing.JButton" binding="nordicButton">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-13948117"/>
-          <text value="Button"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <text value="Nordic"/>
         </properties>
       </component>
       <component id="8f1c2" class="javax.swing.JButton" binding="button3" default-binding="true">
@@ -71,6 +78,9 @@
         </constraints>
         <properties>
           <background color="-13948117"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <text value="Button"/>
         </properties>
       </component>
@@ -80,6 +90,9 @@
         </constraints>
         <properties>
           <background color="-14145496"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <text value="Button"/>
         </properties>
       </component>
@@ -89,16 +102,23 @@
         </constraints>
         <properties>
           <background color="-13948117"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <text value="Dark"/>
         </properties>
       </component>
-      <component id="335fa" class="javax.swing.JButton" binding="button6" default-binding="true">
+      <component id="335fa" class="javax.swing.JButton" binding="forestButton">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-13948117"/>
-          <text value="Button"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <label value="Forest"/>
+          <text value="Forest"/>
         </properties>
       </component>
       <component id="4836f" class="javax.swing.JButton" binding="button7" default-binding="true">
@@ -107,6 +127,9 @@
         </constraints>
         <properties>
           <background color="-13948117"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <text value="Button"/>
         </properties>
       </component>
@@ -116,6 +139,9 @@
         </constraints>
         <properties>
           <background color="-13948117"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <text value="Button"/>
         </properties>
       </component>
